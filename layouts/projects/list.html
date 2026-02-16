@@ -1,0 +1,159 @@
+{{- define "main" }}
+{{- partial "section_header.html" . }}
+
+{{- $isFr := eq .Lang "fr" -}}
+{{- $labelAll := cond $isFr "Tous" "All" -}}
+{{- $labelFilters := cond $isFr "Filtres" "Filters" -}}
+{{- $labelProblem := cond $isFr "Probleme" "Problem" -}}
+{{- $labelMethod := cond $isFr "Methode" "Method" -}}
+{{- $labelResults := cond $isFr "Resultats" "Results" -}}
+{{- $labelStack := cond $isFr "Stack" "Stack" -}}
+{{- $labelGitHub := cond $isFr "Lien GitHub" "GitHub Link" -}}
+{{- $labelNoMatch := cond $isFr "Aucun projet ne correspond a ces tags." "No project matches these tags." -}}
+
+{{- $allTags := slice -}}
+{{- with .Params.filters -}}
+  {{- range . -}}
+    {{- if not (in $allTags .) -}}
+      {{- $allTags = $allTags | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- range .Params.caseStudies -}}
+  {{- with .tags -}}
+    {{- range . -}}
+      {{- if not (in $allTags .) -}}
+        {{- $allTags = $allTags | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $allTags) 0 }}
+<section class="filters-wrap">
+  <p class="filters-label">{{ $labelFilters }}</p>
+  <div class="tag-filters" data-project-filters>
+    <button type="button" class="filter-chip active" data-filter="all">{{ $labelAll }}</button>
+    {{- range $allTags }}
+    <button type="button" class="filter-chip" data-filter="{{ . | urlize }}">{{ . }}</button>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+<p class="filter-empty" data-filter-empty hidden>{{ $labelNoMatch }}</p>
+<section class="case-grid" data-case-grid>
+  {{- range .Params.caseStudies }}
+  {{- $tagKeys := slice -}}
+  {{- with .tags -}}
+    {{- range . -}}
+      {{- $tagKeys = $tagKeys | append (. | urlize) -}}
+    {{- end -}}
+  {{- end -}}
+  <article class="case-card" data-tags="{{ delimit $tagKeys " " }}">
+    <header class="case-head">
+      <h2>{{ .title }}</h2>
+      {{- with .period }}
+      <p class="case-period">{{ . }}</p>
+      {{- end }}
+    </header>
+
+    {{- with .summary }}
+    <p class="case-summary">{{ . | markdownify }}</p>
+    {{- end }}
+
+    <div class="case-block">
+      <h3>{{ $labelProblem }}</h3>
+      <p>{{ .problem | markdownify }}</p>
+    </div>
+
+    {{- with .method }}
+    <div class="case-block">
+      <h3>{{ $labelMethod }}</h3>
+      <ul>
+        {{- range . }}
+        <li>{{ . | markdownify }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- with .results }}
+    <div class="case-block">
+      <h3>{{ $labelResults }}</h3>
+      <ul>
+        {{- range . }}
+        <li>{{ . | markdownify }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- with .stack }}
+    <div class="case-block">
+      <h3>{{ $labelStack }}</h3>
+      <div class="tag-list">
+        {{- range . }}
+        <span class="tag-pill">{{ . }}</span>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+
+    {{- with .github }}
+    <a class="case-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $labelGitHub }}</a>
+    {{- end }}
+  </article>
+  {{- end }}
+</section>
+
+<script>
+(() => {
+  const root = document.querySelector("[data-project-filters]");
+  if (!root) return;
+
+  const chips = Array.from(root.querySelectorAll("[data-filter]"));
+  const cards = Array.from(document.querySelectorAll("[data-case-grid] .case-card"));
+  const empty = document.querySelector("[data-filter-empty]");
+  const active = new Set();
+
+  const syncChipState = () => {
+    chips.forEach((chip) => {
+      const key = chip.dataset.filter;
+      const isActive = key === "all" ? active.size === 0 : active.has(key);
+      chip.classList.toggle("active", isActive);
+    });
+  };
+
+  const applyFilters = () => {
+    let visible = 0;
+    cards.forEach((card) => {
+      const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
+      const show = active.size === 0 || Array.from(active).every((tag) => tags.includes(tag));
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (empty) empty.hidden = visible !== 0;
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const key = chip.dataset.filter;
+      if (key === "all") {
+        active.clear();
+      } else if (active.has(key)) {
+        active.delete(key);
+      } else {
+        active.add(key);
+      }
+      syncChipState();
+      applyFilters();
+    });
+  });
+
+  syncChipState();
+  applyFilters();
+})();
+</script>
+
+{{- end }}

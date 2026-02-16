@@ -1,0 +1,42 @@
+{{- define "main" }}
+{{- partial "section_header.html" . }}
+
+{{- $items := .Params.timeline }}
+{{- if $items }}
+<section class="timeline-view">
+  {{- range $items }}
+  <article class="timeline-item">
+    <div class="timeline-card">
+      <div class="timeline-head">
+        <p class="timeline-role">{{ .role }}</p>
+        <p class="timeline-period">{{ .period }}</p>
+      </div>
+      <p class="timeline-org">{{ .org }}</p>
+      <p class="timeline-location">{{ .location }}</p>
+
+      {{- with .highlights }}
+      <ul class="timeline-list">
+        {{- range . }}
+        <li>{{ . | markdownify }}</li>
+        {{- end }}
+      </ul>
+      {{- end }}
+
+      {{- with .tags }}
+      <div class="tag-list">
+        {{- range . }}
+        <span class="tag-pill">{{ . }}</span>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+  </article>
+  {{- end }}
+</section>
+{{- else if .Content }}
+<div class="post-content">
+  {{ .Content }}
+</div>
+{{- end }}
+
+{{- end }}

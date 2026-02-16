@@ -1,0 +1,11 @@
+{{- if .Title }}
+<header class="page-header profile-page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">
+    {{ . | markdownify }}
+  </div>
+  {{- end }}
+</header>
+{{- end }}
