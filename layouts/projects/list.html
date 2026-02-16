@@ -115,13 +115,14 @@
   const chips = Array.from(root.querySelectorAll("[data-filter]"));
   const cards = Array.from(document.querySelectorAll("[data-case-grid] .case-card"));
   const empty = document.querySelector("[data-filter-empty]");
-  const active = new Set();
+  let active = "all";
 
   const syncChipState = () => {
     chips.forEach((chip) => {
       const key = chip.dataset.filter;
-      const isActive = key === "all" ? active.size === 0 : active.has(key);
+      const isActive = key === active;
       chip.classList.toggle("active", isActive);
+      chip.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   };
 
@@ -129,7 +130,7 @@
     let visible = 0;
     cards.forEach((card) => {
       const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
-      const show = active.size === 0 || Array.from(active).every((tag) => tags.includes(tag));
+      const show = active === "all" || tags.includes(active);
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -139,13 +140,7 @@
   chips.forEach((chip) => {
     chip.addEventListener("click", () => {
       const key = chip.dataset.filter;
-      if (key === "all") {
-        active.clear();
-      } else if (active.has(key)) {
-        active.delete(key);
-      } else {
-        active.add(key);
-      }
+      active = key === active ? "all" : key;
       syncChipState();
       applyFilters();
     });
