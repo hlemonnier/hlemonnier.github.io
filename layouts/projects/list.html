@@ -27,6 +27,13 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
+  {{- with .stack -}}
+    {{- range . -}}
+      {{- if not (in $allTags .) -}}
+        {{- $allTags = $allTags | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- if gt (len $allTags) 0 }}
@@ -47,7 +54,18 @@
   {{- $tagKeys := slice -}}
   {{- with .tags -}}
     {{- range . -}}
-      {{- $tagKeys = $tagKeys | append (. | urlize) -}}
+      {{- $key := . | urlize -}}
+      {{- if not (in $tagKeys $key) -}}
+        {{- $tagKeys = $tagKeys | append $key -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with .stack -}}
+    {{- range . -}}
+      {{- $key := . | urlize -}}
+      {{- if not (in $tagKeys $key) -}}
+        {{- $tagKeys = $tagKeys | append $key -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
   <article class="case-card" data-tags="{{ delimit $tagKeys " " }}">
@@ -115,12 +133,12 @@
   const chips = Array.from(root.querySelectorAll("[data-filter]"));
   const cards = Array.from(document.querySelectorAll("[data-case-grid] .case-card"));
   const empty = document.querySelector("[data-filter-empty]");
-  let active = "all";
+  const active = new Set();
 
   const syncChipState = () => {
     chips.forEach((chip) => {
       const key = chip.dataset.filter;
-      const isActive = key === active;
+      const isActive = key === "all" ? active.size === 0 : active.has(key);
       chip.classList.toggle("active", isActive);
       chip.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
@@ -130,7 +148,7 @@
     let visible = 0;
     cards.forEach((card) => {
       const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
-      const show = active === "all" || tags.includes(active);
+      const show = active.size === 0 || Array.from(active).every((filter) => tags.includes(filter));
       card.hidden = !show;
       card.style.display = show ? "" : "none";
       if (show) visible += 1;
@@ -141,7 +159,13 @@
   chips.forEach((chip) => {
     chip.addEventListener("click", () => {
       const key = chip.dataset.filter;
-      active = key === active ? "all" : key;
+      if (key === "all") {
+        active.clear();
+      } else if (active.has(key)) {
+        active.delete(key);
+      } else {
+        active.add(key);
+      }
       syncChipState();
       applyFilters();
     });
