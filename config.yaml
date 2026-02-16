@@ -3,8 +3,8 @@ title: "Hugo Lemonnier"
 languageCode: "en"
 theme: "PaperMod"
 
-# Génération dans docs/ pour GitHub Pages (paramétrable côté Pages)
-publishDir: "docs"
+# Génération locale dans public/ (le déploiement force la sortie vers docs/)
+publishDir: "public"
 defaultContentLanguage: "en"
 defaultContentLanguageInSubdir: true
 

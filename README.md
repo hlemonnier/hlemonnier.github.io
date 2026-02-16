@@ -24,15 +24,15 @@ git submodule update --init --recursive
 Start a local dev server:
 
 ```bash
-hugo server -D
+hugo server -D --renderToMemory
 # open http://localhost:1313
 ```
 
 Build the site:
 
 ```bash
-hugo --gc --minify
-# Output goes to docs/ (see publishDir in config.yaml)
+hugo --cleanDestinationDir --gc --minify -d docs
+# Output goes to docs/
 ```
 
 ## Deployment (GitHub Pages via Actions)
