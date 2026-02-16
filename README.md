@@ -2,7 +2,7 @@
 
 This repository contains the source of my personal portfolio built with Hugo and the PaperMod theme.
 
-Live site: `https://333rosky.github.io`
+Live site: `https://hlemonnier.github.io`
 
 ## Features
 - Hugo Extended + PaperMod theme (as a git submodule)
@@ -49,7 +49,7 @@ To trigger a deployment:
 ```
 git add -A && git commit -m "content: update" && git push
 ```
-Then wait for the “Deploy Hugo to GitHub Pages” job to finish and open `https://333rosky.github.io`.
+Then wait for the “Deploy Hugo to GitHub Pages” job to finish and open `https://hlemonnier.github.io`.
 
 ## Internationalization (i18n)
 - Default language: English
@@ -62,7 +62,7 @@ Content structure:
 
 ## Customize
 Edit `config.yaml`:
-- `baseURL`: `https://333rosky.github.io/`
+- `baseURL`: `https://hlemonnier.github.io/`
 - `title`, `params.profileMode` (title, subtitle, buttons)
 - Menu entries per language under `languages.*.menu.main`
 
