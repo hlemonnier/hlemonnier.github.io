@@ -1,5 +1,5 @@
-baseURL: "https://333rosky.github.io/"
-title: "Romain Bastiani"
+baseURL: "https://hlemonnier.github.io/"
+title: "Hugo Lemonnier"
 languageCode: "en"
 theme: "PaperMod"
 
@@ -21,10 +21,10 @@ outputs:
 
 params:
   env: production
-  title: "Romain Bastiani"
+  title: "Hugo Lemonnier"
   description: "Quantitative Researcher @Inception Technology"
   keywords: ["Portfolio", "Blog", "Hugo", "PaperMod"]
-  author: "Romain Bastiani"
+  author: "Hugo Lemonnier"
   DateFormat: "2006-01-02"
   defaultTheme: auto
   disableThemeToggle: false
@@ -37,16 +37,16 @@ params:
 
   profileMode:
     enabled: true
-    title: "Romain Bastiani"
+    title: "Hugo Lemonnier"
     subtitle: "Quantitative Researcher @Inception Technology"
     imageUrl: "/Linkedin PP.jpg"
     imageTitle: "Photo de profil"
 
   socialIcons:
     - name: github
-      url: "https://github.com/333Rosky"
+      url: "https://github.com/hlemonnier"
     - name: linkedin
-      url: "https://www.linkedin.com/in/romain-bastiani-118072173/"
+      url: "https://www.linkedin.com/in/hugo-lemonnier-b87548210"
 
 menu:
   # menus spécifiques par langue définis dans languages: (ci-dessous)
@@ -91,7 +91,7 @@ languages:
           - name: "Projects"
             url: "/en/projects/"
           - name: "CV"
-            url: "/Resume Romain Bastiani.pdf"
+            url: "/Resume 2026 EN.pdf"
   fr:
     menu:
       main:
@@ -117,5 +117,5 @@ languages:
           - name: "Projets"
             url: "/fr/projects/"
           - name: "CV"
-            url: "/Resume Romain Bastiani.pdf"
+            url: "/Resume 2026 EN.pdf"
 
