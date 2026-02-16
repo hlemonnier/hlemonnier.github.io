@@ -22,8 +22,8 @@ hugo version
 ## Getting started
 Clone and initialize the theme submodule:
 ```
-git clone https://github.com/333Rosky/333Rosky.github.io.git
-cd 333Rosky.github.io
+git clone https://github.com/hlemonnier/hlemonnier.github.io.git
+cd hlemonnier.github.io
 git submodule update --init --recursive
 ```
 
