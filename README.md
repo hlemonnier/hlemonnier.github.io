@@ -19,14 +19,7 @@ Verify your setup:
 hugo version
 ```
 
-## Getting started
-Clone and initialize the theme submodule:
-```
-git clone https://github.com/hlemonnier/hlemonnier.github.io.git
-cd hlemonnier.github.io
-git submodule update --init --recursive
-```
-
+## Local development
 Start a local dev server:
 ```
 hugo server -D
@@ -71,10 +64,6 @@ Static assets:
 
 ## Theme (PaperMod)
 The theme is tracked as a submodule in `themes/PaperMod`.
-If you ever re-clone the repository or switch machines, run:
-```
-git submodule update --init --recursive
-```
 
 ## Project layout
 - `config.yaml` — Hugo configuration (including i18n, menus, publishDir)
