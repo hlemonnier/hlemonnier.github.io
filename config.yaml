@@ -26,7 +26,7 @@ params:
   keywords: ["Portfolio", "Blog", "Hugo", "PaperMod"]
   author: "Hugo Lemonnier"
   DateFormat: "2006-01-02"
-  defaultTheme: auto
+  defaultTheme: dark
   disableThemeToggle: false
   ShowBreadCrumbs: true
   ShowReadingTime: false
