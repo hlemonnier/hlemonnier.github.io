@@ -2,39 +2,44 @@
 title: "Experience"
 ---
 
-## Inception Technology — Quantitative Researcher
-Paris, France · Jul 2025 — Apr 2026
+## Enigma Securities (Electronic Markets Brokerage)
+Paris, France
 
-- Built two AI agents leveraging LLMs (OpenAI) to produce client-facing insights on commodity markets: CTA flows, flow sequencing, deferred orders, convexity, and crowding dynamics.
-- Performed prompt engineering to strengthen the system prompt, ensuring robust and client-aligned responses across a wide range of market queries.
-- Contributed to a Model Context Protocol (MCP) to enable more structured and context-aware interactions between AI agents and data.
+### Quantitative Researcher — Fixed-term contract
+June 2025 — December 2025
 
----
+- Developed a multivariate predictive model for short-horizon market dynamics using a broad feature set (order-flow, liquidity, volatility, and derivatives-based variables), validated out-of-sample with statistically significant signal quality.
+- Built a research-to-production pipeline for feature generation, training, and evaluation (reproducible experiments, automated reporting, monitoring hooks), improving iteration speed and deployment reliability.
+- Implemented a robust validation framework (walk-forward splits, regime diagnostics, ablations) to reduce overfitting and attribute performance to specific feature families.
+- Partnered with trading and engineering to integrate model outputs into decision rules for execution workflows, improving consistency and traceability in shadow-live tests.
 
-## Inception Technology — Quantitative Researcher Intern
-Paris, France · Jan 2025 — Jul 2025
+### Quantitative Research Intern
+January 2025 — June 2025
 
-- Researched high-capacity factor models and designed long/short strategies, including trend-following approaches based on Markowitz optimization.
-- Analyzed futures positioning using CFTC reports (Legacy, Disaggregated, Supplemental) to monitor CTA flows and systematic trader exposures.
-- Developed and backtested factor models in Python (pandas, NumPy, scikit-learn) using futures data across commodities (energy, agriculture, metals, softs).
-- Collaborated with engineering and analytics teams to integrate research insights into the core SaaS platform.
-
----
-
-## Funds Avenue — Risk Management Intern
-Luxembourg · Jul 2024 — Dec 2024
-
-- Assessed portfolio risk exposure using stress tests and Value-at-Risk (VaR) to support strategic decision-making.
-- Analyzed investment portfolios with Python and Excel models to quantify exposures and ensure accurate risk evaluation.
-- Produced risk management reports and presentations for senior management, simplifying complex assessments.
-- Designed and implemented strategies to minimize and manage investment risks, contributing to portfolio stability and profitability.
+- Implemented and productionised an Avellaneda-Stoikov market-making baseline (inventory-aware skew, spread/refresh controls) in an event-driven backtesting framework.
+- Developed microstructure-based signals to manage adverse selection (order-flow/liquidity imbalance, queue proxies) and improve passive execution quality.
+- Prototyped a SAC reinforcement-learning agent to adapt quoting parameters, achieving an out-of-sample improvement in risk-adjusted returns at similar execution intensity.
 
 ---
 
-## Radio France — Data Analyst Intern (Digital Department)
-Paris, France · May 2023 — Aug 2023
+## RSM (5th-largest audit firm)
+Paris, France
 
-- Built a user-friendly Python tool to support operations.
-- Managed and maintained a key part of the SQL databases, focusing on data integrity and security.
+### IT Audit — Internship
+June 2024 — December 2024
 
+- Analysed large datasets in Python to identify anomalies impacting financial performance.
+- Performed blockchain audits (code and security protocols) to ensure traceability and integrity.
+- Coordinated the launch of a digital bank (Africa): selected BaaS providers and negotiated contracts.
 
+---
+
+## Apentis (Portfolio Analysis, Fintech)
+Luxembourg, Luxembourg
+
+### Data Analyst Intern
+April 2023 — October 2023
+
+- Built a Python/SQL ETL and performance/risk dashboards; cut month-end reporting from one day to twenty minutes.
+- Deployed a daily portfolio-monitoring system (returns, drawdown, VaR) with alerts.
+- Optimised queries and indexes, making analytics about three times faster, and reconciled custodian/pricing data.

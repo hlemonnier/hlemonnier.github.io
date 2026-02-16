@@ -2,29 +2,33 @@
 title: "Education"
 ---
 
-## NEOMA Business School — Grande École, Corporate Finance & Investment Banking
-Rouen, France · 2023 — 2025
+## NEOMA Business School
+Rouen, France
 
-Ranked #24 best Master in Finance pre-experience 2024 by the Financial Times.
+### MSc Corporate Finance & Investment Banking
+October 2023 — December 2024
 
-- Financial Engineering & Derivatives I, II
-- Advanced Corporate Finance
-- Financial Data Analytics & Programming
-- Private Equity & Early Stage Capital
-- Financial Modeling & Valuation
-
----
-
-## ESIGELEC — Master of Engineering, Finance
-Rouen, France · 2021 — 2024
-
-- Mathematics (Analysis, Algebra, Statistics)
-- Programming (Python, Java, SQL, C)
-- IT Architecture and Audit
+- Double degree with ESIGELEC.
+- Thesis: Stochastic Calculus in M&A Processes.
+- Key modules: Financial Engineering, Advanced Corporate Finance, Mergers and Acquisitions, Corporate Strategies.
 
 ---
 
-## International Integrated Preparatory Cycle
-Rouen, France · 2018 — 2021
+## ESIGELEC
+Rouen, France
 
+### MSc in Financial Engineering
+September 2021 — December 2024
 
+- Distinction: Top 10% of class.
+- Key modules: Advanced Probability, Machine Learning, Monte Carlo Simulation, Applied Statistics for Finance.
+
+---
+
+## Additional Training
+
+### MIT-edX — Mathematical Methods for Quantitative Finance
+- Key modules: Probability, stochastic processes (discrete and continuous), Ito calculus, time series.
+
+### MIT-edX — Machine Learning with Python: From Linear Models to Deep Learning
+- Key modules: Linear models, clustering, recommender systems, CNN, generative models, reinforcement learning, NLP.
