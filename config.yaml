@@ -39,8 +39,8 @@ params:
     enabled: true
     title: "Hugo Lemonnier"
     subtitle: "Quantitative Reasearcher @Enigma Securities"
-    imageUrl: "/Linkedin PP.jpg"
-    imageTitle: "Photo de profil"
+    imageUrl: ""
+    imageTitle: ""
 
   socialIcons:
     - name: github

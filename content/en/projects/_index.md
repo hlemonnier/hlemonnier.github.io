@@ -16,7 +16,7 @@ caseStudies:
       - "Reduced iteration cycles through automated experimentation and reporting."
       - "Improved model traceability for downstream execution decision rules."
     stack: ["Python", "Pandas", "NumPy", "Scikit-learn", "ML", "Risk"]
-    tags: ["ML", "Risk"]
+    tags: ["ML"]
     github: "https://github.com/hlemonnier"
 
   - title: "Adaptive Market Making (Avellaneda-Stoikov + SAC RL)"
@@ -48,6 +48,6 @@ caseStudies:
       - "Improved drawdown control under volatile BTC regimes."
       - "Created reusable research components for signal and risk overlays."
     stack: ["Python", "ML", "Risk", "Pandas", "NumPy"]
-    tags: ["Python", "ML"]
+    tags: ["Python"]
     github: "https://github.com/hlemonnier"
 ---
