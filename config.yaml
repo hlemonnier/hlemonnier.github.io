@@ -22,7 +22,7 @@ outputs:
 params:
   env: production
   title: "Hugo Lemonnier"
-  description: "Quantitative Researcher @Inception Technology"
+  description: "Quantitative Reasearcher @Enigma Securities"
   keywords: ["Portfolio", "Blog", "Hugo", "PaperMod"]
   author: "Hugo Lemonnier"
   DateFormat: "2006-01-02"
@@ -38,7 +38,7 @@ params:
   profileMode:
     enabled: true
     title: "Hugo Lemonnier"
-    subtitle: "Quantitative Researcher @Inception Technology"
+    subtitle: "Quantitative Reasearcher @Enigma Securities"
     imageUrl: "/Linkedin PP.jpg"
     imageTitle: "Photo de profil"
 
@@ -67,6 +67,7 @@ privacy:
 
 languages:
   en:
+    contentDir: "content/en"
     menu:
       main:
         - identifier: en-home
@@ -93,6 +94,7 @@ languages:
           - name: "CV"
             url: "/Resume 2026 EN.pdf"
   fr:
+    contentDir: "content/fr"
     menu:
       main:
         - identifier: fr-accueil
