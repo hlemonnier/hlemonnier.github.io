@@ -132,6 +132,7 @@
       const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
       const show = active === "all" || tags.includes(active);
       card.hidden = !show;
+      card.style.display = show ? "" : "none";
       if (show) visible += 1;
     });
     if (empty) empty.hidden = visible !== 0;
